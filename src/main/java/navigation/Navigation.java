@@ -1,0 +1,17 @@
+package navigation;
+
+import org.openqa.selenium.WebDriver;
+import driver.Driver;
+
+public class Navigation {
+    private WebDriver driver;
+
+    public Navigation(){
+        driver = Driver.DRIVERS.get();
+    }
+
+    public void navigateToUrl(String URL){
+        driver.get(URL);
+        driver.manage().window().maximize();
+    }
+}
