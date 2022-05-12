@@ -20,7 +20,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.8.8</version>
+            <version>7.5</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -37,6 +37,7 @@
             <artifactId>webdrivermanager</artifactId>
             <version>3.8.1</version>
         </dependency>
+
     </dependencies>
 
     <build>
