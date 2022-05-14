@@ -7,7 +7,7 @@ import java.util.List;
 
 public class WishListPage extends BasePage{
 
-    @FindBy(xpath = "//*[@id=\"content\"]/div[1]/table")
+    @FindBy(xpath = "//*[@id='content']/div[1]/table")
     private WebElement wishListTable;
 
     @FindBy(xpath = "//tbody/tr/td[contains(@class, 'text-center')]")
