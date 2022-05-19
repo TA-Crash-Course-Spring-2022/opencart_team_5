@@ -6,8 +6,8 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class SearchProductPage {
-    @FindBy(id = "input-search")
+public class SearchProductPage extends BasePage{
+    @FindBy(xpath = "//*[@class='form-control input-lg']")
     private WebElement searchInput;
 
     @FindBy(xpath = "//select[@name='category_id']")
@@ -19,7 +19,7 @@ public class SearchProductPage {
     @FindBy(id = "description")
     private WebElement checkboxDescription;
 
-    @FindBy(id = "button-search")
+    @FindBy(xpath = "//*[@class='btn btn-default btn-lg']")
     private WebElement searchButton;
 
     @FindBy(id = "list-view")

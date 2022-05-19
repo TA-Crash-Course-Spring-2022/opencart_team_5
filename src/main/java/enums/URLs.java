@@ -1,7 +1,8 @@
 package enums;
 
 public enum URLs {
-    BASE_URL("http://localhost/OpenCart/upload/");
+    BASE_URL("http://localhost/OpenCart/upload/"),
+    ADMIN_URL("http://localhost/OpenCart/upload/admin/");
 
     private final String value;
 
