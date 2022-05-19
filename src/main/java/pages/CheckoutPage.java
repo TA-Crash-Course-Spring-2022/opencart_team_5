@@ -1,11 +1,12 @@
 package pages;
 
+import lombok.Getter;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
-public class CheckoutPage {
+@Getter
+public class CheckoutPage extends BasePage {
     @FindBy(xpath = "]//*[@value='existing']")
     private WebElement radioBtnExistingAddress;
 
@@ -13,34 +14,31 @@ public class CheckoutPage {
     private WebElement radioBtnNewAddress;
 
     @FindBy(xpath = "//*[@name='firstname']")
-    private List<WebElement> inputFirstName;
+    private WebElement inputFirstName;
 
     @FindBy(xpath = "//*[@name='lastname']")
-    private List<WebElement> inputLastName;
+    private WebElement inputLastName;
 
     @FindBy(xpath = "//*[@name='company']")
-    private List<WebElement> inputCompany;
+    private WebElement inputCompany;
 
     @FindBy(xpath = "//*[@name='address_1']")
-    private List<WebElement> inputAddress1;
+    private WebElement inputAddress1;
 
     @FindBy(xpath = "//*[@name='address_2']")
-    private List<WebElement> inputAddress2;
+    private WebElement inputAddress2;
 
     @FindBy(xpath = "//*[@name='city']")
-    private List<WebElement> inputCity;
+    private WebElement inputCity;
 
     @FindBy(xpath = "//*[@name='postcode']")
-    private List<WebElement> inputPostalCode;
-
-    @FindBy(xpath = "//*[@name='country_id']")
-    private List<WebElement> inputCountry;
-
-    @FindBy(xpath = "//*[@name='zone_id']")
-    private List<WebElement> inputRegionOrState;
+    private WebElement inputPostalCode;
 
     @FindBy(id= "button-payment-address")
-    private List<WebElement> buttonContinueDeliveryDetails;
+    private WebElement buttonContinueBillingDetails;
+
+    @FindBy(id= "button-shipping-address")
+    private WebElement buttonContinueDeliveryDetails;
 
     @FindBy(xpath = "//*[@value='flat.flat']")
     private WebElement radioBtnDeliveryMethod;
@@ -49,7 +47,7 @@ public class CheckoutPage {
     private WebElement textAreaComment;
 
     @FindBy(id= "button-shipping-method")
-    private List<WebElement> buttonContinueDeliveryMethod;
+    private WebElement buttonContinueDeliveryMethod;
 
     @FindBy(xpath = "//*[@value='flat.flat']")
     private WebElement radioBtnPaymentMethod;
@@ -58,49 +56,55 @@ public class CheckoutPage {
     private WebElement textAreaCommentAboutOrder;
 
     @FindBy(xpath = "//*[@name='agree']")
-    private List<WebElement> checkBoxTermsConditions;
+    private WebElement checkBoxTermsConditions;
 
     @FindBy(id= "button-payment-method")
-    private List<WebElement> buttonContinuePaymentMethod;
+    private WebElement buttonContinuePaymentMethod;
 
     @FindBy(id= "button-confirm")
-    private List<WebElement> buttonConfirmOrder;
+    private WebElement buttonConfirmOrder;
 
     public WebElement getRadioBtnExistingAddress() {
         return radioBtnExistingAddress;
     }
-    public WebElement getRadioBtnNewAddress(int id) {
+    public WebElement getRadioBtnNewAddress() {
         return radioBtnNewAddress;
     }
-    public WebElement getInputFirstName(int id) {
-        return inputFirstName.get(id);
+    public WebElement getInputFirstName() {
+        return inputFirstName;
     }
-    public WebElement getInputLastName(int id) {
-        return inputLastName.get(id);
+    public WebElement getInputLastName() {
+        return inputLastName;
     }
-    public WebElement getInputCompany(int id) {
-        return inputCompany.get(id);
+    public WebElement getInputCompany() {
+        return inputCompany;
     }
-    public WebElement getInputAddress1(int id) {
-        return inputAddress1.get(id);
+    public WebElement getInputAddress1() {
+        return inputAddress1;
     }
-    public WebElement getInputAddress2(int id) {
-        return inputAddress2.get(id);
+    public WebElement getInputAddress2() {
+        return inputAddress2;
     }
-    public WebElement getInputCity(int id) {
-        return inputCity.get(id);
+    public WebElement getInputCity() {
+        return inputCity;
     }
-    public WebElement getInputPostalCode(int id) {
-        return inputPostalCode.get(id);
+    public WebElement getInputPostalCode() {
+        return inputPostalCode;
     }
-    public WebElement getInputCountry(int id) {
-        return inputCountry.get(id);
+    public WebElement getCheckoutOption(String value) {
+        return driver.findElement(By.xpath("//*[@name='payment_address' and @value = '"+ value + "']"));
     }
-    public WebElement getInputRegionOrState(int id) {
-        return inputRegionOrState.get(id);
+    public WebElement getListCountry(int value) {
+        return driver.findElement(By.xpath(".//*[@id='input-payment-country' and @value = '" + value + "']"));
     }
-    public WebElement getButtonContinueDeliveryDetails(int id) {
-        return buttonContinueDeliveryDetails.get(id);
+    public WebElement getListRegionOrState(int value) {
+        return driver.findElement(By.xpath(".//*[@id= 'input-payment-zone' and @value = '" + value + "']"));
+    }
+    public WebElement getButtonContinueBillingDetails() {
+        return buttonContinueBillingDetails;
+    }
+    public WebElement getButtonContinueDeliveryDetails() {
+        return buttonContinueDeliveryDetails;
     }
     public WebElement getRadioBtnDeliveryMethod() {
         return radioBtnDeliveryMethod;
@@ -108,8 +112,8 @@ public class CheckoutPage {
     public WebElement getTextAreaComment() {
         return textAreaComment;
     }
-    public WebElement getButtonContinueDeliveryMethod(int id) {
-        return buttonContinueDeliveryMethod.get(id);
+    public WebElement getButtonContinueDeliveryMethod() {
+        return buttonContinueDeliveryMethod;
     }
     public WebElement getRadioBtnPaymentMethod() {
         return radioBtnPaymentMethod;
@@ -117,14 +121,14 @@ public class CheckoutPage {
     public WebElement getTextAreaCommentAboutOrder() {
         return textAreaCommentAboutOrder;
     }
-    public WebElement getCheckBoxTermsConditions(int id) {
-        return checkBoxTermsConditions.get(id);
+    public WebElement getCheckBoxTermsConditions() {
+        return checkBoxTermsConditions;
     }
-    public WebElement getButtonContinuePaymentMethod(int id) {
-        return buttonContinuePaymentMethod.get(id);
+    public WebElement getButtonContinuePaymentMethod() {
+        return buttonContinuePaymentMethod;
     }
-    public WebElement getButtonConfirmOrder(int id) {
-        return buttonConfirmOrder.get(id);
+    public WebElement getButtonConfirmOrder() {
+        return buttonConfirmOrder;
     }
 
 }
